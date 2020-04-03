@@ -1,28 +1,22 @@
 <template>
   <div id="app" class="container mt-5">
-    <products
+    <router-view
       :cart="cart"
-      :cartQty="cartQty"
       :cartTotal="cartTotal"
+      :cartQty="cartQty"
       :sliderStatus="sliderStatus"
       :maximum.sync="maximum"
       :products="products"
-      @add="addItem"
       @toggle="toggleSliderStatus"
+      @add="addItem"
       @delete="deleteItem"
-    ></products>
+    ></router-view>
   </div>
 </template>
 
 <script>
-import Products from "./components/Products.vue";
-
-
 export default {
   name: "App",
-  components: {
-    Products
-  },
   data: function() {
     return {
       maximum: 99,
@@ -88,6 +82,6 @@ export default {
 
 <style>
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 </style>

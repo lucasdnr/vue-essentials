@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-light fixed-top">
     <div class="navbar-text ml-auto d-flex">
-      <button class="btn btn-sm btn-outline-success" @click="$emit('toggle')">
+      <button class="btn btn-sm btn-outline-success" @click="$parent.$emit('toggle')">
         <font-awesome-icon icon="dollar-sign"></font-awesome-icon>
       </button>
       <div class="dropdown ml-2" v-if="cart.length>0">
@@ -26,7 +26,7 @@
               </b>
               <a
                 href="#"
-                @click.stop="$emit('delete', index)"
+                @click.stop="$parent.$emit('delete', index)"
                 class="badge badge-danger text-white"
               >-</a>
             </div>
@@ -39,6 +39,7 @@
 
 <script>
 import Price from "./Price.vue";
+//when we have more than one component inside file we need specify one using {}
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {

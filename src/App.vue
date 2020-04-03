@@ -1,24 +1,27 @@
 <template>
   <div id="app" class="container mt-5">
-    <h1>My Shop</h1>
-    <navbar :cart="cart" :cartQty="cartQty" :cartTotal="cartTotal" @toggle="toggleSliderStatus" @delete="deleteItem"></navbar>
-    <price-slider :sliderStatus="sliderStatus" :maximum.sync="maximum"></price-slider>
-    <product-list :products="products" :maximum="maximum" @add="addItem"></product-list>
+    <products
+      :cart="cart"
+      :cartQty="cartQty"
+      :cartTotal="cartTotal"
+      :sliderStatus="sliderStatus"
+      :maximum.sync="maximum"
+      :products="products"
+      @add="addItem"
+      @toggle="toggleSliderStatus"
+      @delete="deleteItem"
+    ></products>
   </div>
 </template>
 
 <script>
-//when we have more than one component inside file we need specify one using {}
-import ProductList from "./components/ProductList.vue";
-import PriceSlider from "./components/PriceSlider.vue";
-import Navbar from "./components/Navbar.vue";
+import Products from "./components/Products.vue";
+
 
 export default {
   name: "App",
   components: {
-    ProductList,
-    PriceSlider,
-    Navbar
+    Products
   },
   data: function() {
     return {
